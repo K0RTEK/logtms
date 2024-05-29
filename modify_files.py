@@ -54,6 +54,9 @@ class DataFrameProcessor:
         self.intermediate_dataframe.drop(cols_to_concat, axis=1, inplace=True)
         
         return self.intermediate_dataframe
+    
+    def save_intermediate_file(self, path: str):
+        self.intermediate_dataframe.to_excel(path)
 
     def __str__(self) -> str:
         return str(self.intermediate_dataframe)
@@ -112,9 +115,9 @@ class SvodTable:
         last_row_idx = self.find_last_row()
 
         for df_row in data:
-            for col_index, value in enumerate(df_row, start=1):
+            for col_index, value in enumerate(df_row, start=2):
                 self.workbook[self.worksheet_name].cell(row=last_row_idx, column=col_index, value=value)
             last_row_idx += 1
 
-    def save_workbook(self):
-        self.workbook.save("new_svod.xlsx")
+    def save_workbook(self, path: str):
+        self.workbook.save(path)

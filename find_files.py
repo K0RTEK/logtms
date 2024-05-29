@@ -26,6 +26,4 @@ class FindFiles:
     
 
 if __name__ == '__main__':
-    # files = FindFiles("D:\\logtms\\№_297_TE_Germany_24_12_Цзиньхуа_Малашевиче_Jinhua_WB1224")
-    # files.find_paths()
     pass
