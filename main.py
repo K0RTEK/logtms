@@ -10,9 +10,10 @@ def start(root_directory, intermediate_file_path, svod_excel_file_path) -> None:
 
     excel_dataframes = ReadExcel(files.paths, intermediate_file_path=intermediate_file_path, svod_file_path=svod_excel_file_path)
     excel_dataframes.read_files()
+    print(excel_dataframes.files_paths)
 
-    excel_dataframes.dataframes["297 TE Germany"] = excel_dataframes.dataframes.pop("D:\\logtms\\№_297_TE_Germany_24_12_Цзиньхуа_Малашевиче_Jinhua_WB1224\\7084-087-1306 Мала ОТЛК- 297.xlsx")
-    excel_dataframes.dataframes["Цзиньхуа Малашевиче Jinhua WB1224"] = excel_dataframes.dataframes.pop("D:\\logtms\\№_297_TE_Germany_24_12_Цзиньхуа_Малашевиче_Jinhua_WB1224\\Лист перегруза 674 Сиань-Будапешт.xlsx")
+    excel_dataframes.dataframes["297 TE Germany"] = excel_dataframes.dataframes.pop(excel_dataframes.files_paths[0])
+    excel_dataframes.dataframes["Цзиньхуа Малашевиче Jinhua WB1224"] = excel_dataframes.dataframes.pop(excel_dataframes.files_paths[1])
 
     intermediate_file = excel_dataframes.get_intermediate_file()
     svod_workbook = excel_dataframes.get_svod_file()
